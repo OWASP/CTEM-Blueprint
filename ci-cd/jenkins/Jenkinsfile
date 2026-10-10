@@ -1,0 +1,11 @@
+pipeline {
+  agent any
+
+  stages {
+    stage('CTEM Validation') {
+      steps {
+        echo 'Run CTEM validation checks here'
+      }
+    }
+  }
+}

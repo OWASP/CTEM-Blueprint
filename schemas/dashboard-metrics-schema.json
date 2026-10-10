@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Dashboard Metrics Schema",
+  "type": "object",
+  "properties": {
+    "metricName": { "type": "string" },
+    "metricType": { "type": "string" },
+    "description": { "type": "string" },
+    "value": { "type": "number" },
+    "target": { "type": "number" }
+  },
+  "required": ["metricName", "metricType", "description", "value", "target"]
+}

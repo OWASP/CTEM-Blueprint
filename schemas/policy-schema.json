@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Policy Schema",
+  "type": "object",
+  "properties": {
+    "policyName": { "type": "string" },
+    "owner": { "type": "string" },
+    "status": { "type": "string" },
+    "appliesTo": { "type": "array", "items": { "type": "string" } },
+    "controls": { "type": "array", "items": { "type": "string" } }
+  },
+  "required": ["policyName", "owner", "status", "appliesTo", "controls"]
+}

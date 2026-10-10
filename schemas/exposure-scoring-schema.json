@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Exposure Scoring Schema",
+  "type": "object",
+  "properties": {
+    "asset": { "type": "string" },
+    "exposureId": { "type": "string" },
+    "severity": { "type": "string" },
+    "likelihood": { "type": "number" },
+    "impact": { "type": "number" },
+    "score": { "type": "number" }
+  },
+  "required": ["asset", "exposureId", "severity", "likelihood", "impact", "score"]
+}

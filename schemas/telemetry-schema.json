@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Telemetry Schema",
+  "type": "object",
+  "properties": {
+    "timestamp": { "type": "string", "format": "date-time" },
+    "source": { "type": "string" },
+    "eventType": { "type": "string" },
+    "severity": { "type": "string" },
+    "details": { "type": "object" }
+  },
+  "required": ["timestamp", "source", "eventType", "severity", "details"]
+}

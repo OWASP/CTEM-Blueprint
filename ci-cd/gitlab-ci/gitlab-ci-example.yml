@@ -1,0 +1,7 @@
+stages:
+  - validate
+
+ctem_validation:
+  stage: validate
+  script:
+    - echo "Run CTEM validation checks here"
