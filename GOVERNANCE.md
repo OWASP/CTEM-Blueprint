@@ -5,9 +5,11 @@
 | Document version | 0.1 working draft |
 | Status | Proposed for project review; not approved project policy |
 | Scope | Quarter 1 foundation work and contributions to `quarter1-poc` |
+| Created by | `Sathish Kishore` |
 | Review date | 2026-11-06 |
 | Reviewed repository | [OWASP/CTEM-Blueprint](https://github.com/OWASP/CTEM-Blueprint) |
 | Reviewed branch | `quarter1-poc` |
+| Reviewed by | `Arief Mohammed` |
 | Reviewed commit | [`0f795b031058e82b4e4256cefd608dc333de027a`](https://github.com/OWASP/CTEM-Blueprint/tree/0f795b031058e82b4e4256cefd608dc333de027a) |
 | Intended repository location | Root `GOVERNANCE.md`, replacing the current outline only after review |
 
