@@ -1,19 +1,21 @@
-# Contributor Code of Conduct
+# Code of Conduct
 
-This project is committed to providing a welcoming, respectful, and safe environment for contributors.
+The OWASP CTEM Blueprint community follows the [OWASP Foundation Code of Conduct](https://owasp.org/www-policy/operational/code-of-conduct/) and other applicable OWASP policies.
 
-## Expected behavior
+All participants—including leaders, maintainers, contributors and reviewers—are expected to communicate respectfully, welcome good-faith criticism, avoid harassment and discrimination, and protect the confidentiality of reports or personal information.
 
-- Be respectful and professional.
-- Be constructive in review feedback.
-- Focus on improving the project and its contributors.
+## Project-specific expectations
 
-## Unacceptable behavior
+- Critique ideas and evidence, not people.
+- Disclose relevant conflicts of interest when reviewing proposals.
+- Avoid vendor endorsements or unsupported attack-group attribution.
+- Do not share private assessment results, customer data or credentials in public discussions.
+- Use constructive, accessible language and a documented review trail.
 
-- Harassment, discrimination, or abusive conduct.
-- Personal attacks or threatening behavior.
-- Disruptive or malicious conduct in discussions or project spaces.
+## Reporting concerns
 
-## Enforcement
+For conduct issues, use the reporting and escalation routes in the **current OWASP Code of Conduct**; do not rely solely on a public GitHub issue for a private concern. The project leadership may help route reports but cannot replace Foundation-authorized enforcement or dispute resolution.
 
-Project maintainers may take appropriate action to address violations, including warnings or removal from participation.
+For suspected technical security vulnerabilities, see [SECURITY.md](SECURITY.md) and avoid public exploit disclosure.
+
+This file summarizes expectations; it does **not override** the Foundation's policy.
