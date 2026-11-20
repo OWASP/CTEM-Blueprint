@@ -1,300 +1,64 @@
-# OWASP CTEM Top 10
+# OWASP CTEM Blueprint
 
-## Continuous Threat Exposure Patterns in Modern Applications
+**Continuous Threat Exposure Management for Web, API, Mobile, and AI/LLM Security**
 
-**Version:** 0.1  
-**Status:** Draft  
-**Project Stage:** Incubator  
+> **Status:** Quarter 1 foundation documentation — working draft pending leader/community review. This is not a published CTEM standard, certified test suite, or endorsement of any product.
 
----
+The **OWASP CTEM Blueprint** is an open, vendor-neutral methodology for continuously identifying, validating, prioritizing and reducing security exposure. It focuses on whether real conditions and security controls create meaningful exposure in a defined business context—not merely on the number of scanner findings.
 
-## Executive Summary
+## Who is it for?
 
-The **OWASP CTEM Top 10** identifies the most common and impactful continuous exposure patterns observed in modern applications, particularly in **Retail, Banking, and FinTech** ecosystems where automated attacks, fraud, and abuse are persistent.
+AppSec, API and mobile security teams, AI security practitioners, cloud security engineers, defenders, development teams, and business risk owners.
 
-Unlike traditional vulnerability lists, the CTEM Top 10 focuses on **validated exploitability** and **continuous exposure**, not theoretical weaknesses.
+## Why does it exist?
 
-The goal is to help organizations:
+An alert can indicate a possible weakness without showing that it can cause harm in the assessed environment. Conversely, weaknesses in authorization, workflows, identity, third-party services, or security configuration can combine into an exploitable path. Security posture can change after every release. CTEM connects discovery to scoped evidence, actionable decisions, and verification after change.
 
-- Continuously measure real-world exposure
-- Validate whether security controls actually work
-- Detect regression and exposure drift
-- Prioritize risk based on exploitability, not CVSS alone
+## The Q1 lifecycle
 
-This document complements existing OWASP projects such as the **OWASP Top 10** and **OWASP API Security Top 10** by operationalizing exposure through continuous validation.
+**Scope → Discover → Validate → Prioritize → Mobilize → reassess**
 
----
+1. **Scope:** agree what matters, who owns it and where tests are authorized.
+2. **Discover:** collect potential exposure hypotheses, dependencies and control gaps.
+3. **Validate:** safely assess evidence and the effectiveness of relevant controls.
+4. **Prioritize:** decide treatment order based on impact, evidence, urgency and uncertainty.
+5. **Mobilize:** assign remediation, mitigation or acceptance; then retest and feed back.
 
-## Methodology
+This is the Blueprint’s proposed Q1 order. Emergency containment can occur at any phase; tests do not have to prove exploitability before urgent defensive action.
 
-The CTEM Top 10 is derived from:
+## Quarter 1 documentation index
 
-- Continuous Threat Exposure Management principles
-- Observed attack and abuse patterns in real-world environments
-- Mapping to OWASP Top 10 and OWASP API Security Top 10
-- Exposure validation through adversary emulation
-- Industry observations across Retail, Banking, and FinTech platforms
+| Topic | Document |
+|---|---|
+| Overview and intended users | [Introduction](docs/introduction.md) |
+| Concepts, responsibilities and evidence | [CTEM framework](docs/ctem-framework.md) |
+| Phase-by-phase guidance | [Five-phase lifecycle](docs/ctem-5-phase-lifecycle.md) |
+| Web, API, Mobile and AI boundaries | [Scope](docs/scope.md) |
+| Human-supervised AI assistance | [Responsible AI use](docs/responsible-ai-use.md) |
+| Vocabulary | [Glossary](docs/glossary.md) |
+| System-level conceptual interactions | [CTEM reference architecture](architecture/ctem-reference-architecture.md) |
+| CI/CD integration concept | [CI/CD architecture](architecture/ctem-ci-cd-architecture.md) |
+| Quarterly plan | [Roadmap](ROADMAP.md) |
+| Collaboration rules (proposed for adoption) | [Governance](GOVERNANCE.md) |
+| Contribution process | [Contributing](CONTRIBUTING.md) |
+| Conduct and reporting | [Code of Conduct](CODE_OF_CONDUCT.md) |
 
-Each category represents a **continuous exposure pattern**, not a single vulnerability.
+[Q1 acceptance and review checklist](docs/q1-completion-checklist.md) · [Q1 planning meeting notes](meetings/2026-10-10-q1-planning.md)
 
----
+## Relationship to other OWASP projects
 
-## CTEM Top 10 Overview
+This Blueprint complements the [OWASP Top 10](https://owasp.org/www-project-top-ten/), [API Security](https://owasp.org/www-project-api-security/), [Mobile Application Security](https://owasp.org/www-project-mobile-app-security/), [GenAI Security](https://genai.owasp.org/), and [Automated Threats to Web Applications](https://owasp.org/www-project-automated-threats-to-web-applications/). These sources identify risk areas, testing guidance, or abuse patterns. The Blueprint proposes a repeatable method for validating and managing actual exposure, not a competing taxonomy.
 
-| ID | Exposure Pattern | Mapped OWASP Area |
-|---|---|---|
-| CTEM-01 | Broken Authentication & Account Takeover Exposure | Broken Authentication |
-| CTEM-02 | Broken Authorization / IDOR Exposure | Broken Access Control |
-| CTEM-03 | Excessive Attack Surface Exposure | Access Control / Security Misconfiguration |
-| CTEM-04 | Security Control Bypass After Change | Access Control / Software & Data Integrity |
-| CTEM-05 | Automation & Bot Abuse Exposure | Authentication / Insecure Design |
-| CTEM-06 | API Trust Boundary Exposure | API1 / API2 / API5 |
-| CTEM-07 | Business Logic Abuse Exposure | Insecure Design |
-| CTEM-08 | Third-Party & Supply Chain Exposure | Vulnerable Components / Software Integrity |
-| CTEM-09 | Detection & Response Validation Gaps | Logging & Monitoring Failures |
-| CTEM-10 | Exposure Drift | All Categories |
+**Q1 is documentation-only:** proposals for a CTEM Top 10, executable playbooks, edge mitigation tools, dashboards, and working CI/CD integrations are **later-quarter deliverables**. Existing repository material in those folders may be exploratory placeholders, not shipped capabilities.
 
----
+## Safety and accountability
 
-## CTEM-01: Broken Authentication & Account Takeover Exposure
+Tests require written authorization, defined scope, synthetic accounts/data where practical, bounded traffic, stop conditions and reviewable evidence. A finding is not necessarily an exploitable exposure, and a failed test does not prove safety. LLM output may assist a reviewer but is not evidence by itself.
 
-**Mapped OWASP:** Broken Authentication
+## Contributing and licensing
 
-### Description
+Contributions are welcome from everyone; OWASP project leadership has separate membership obligations. See [CONTRIBUTING.md](CONTRIBUTING.md), [GOVERNANCE.md](GOVERNANCE.md), [SECURITY.md](SECURITY.md), and the [OWASP Code of Conduct](https://owasp.org/www-policy/operational/code-of-conduct/).
 
-Authentication controls fail under realistic attacker behaviour, enabling account takeover through credential stuffing, token replay, and session misuse.
+Source code: [Apache License 2.0](LICENSE). Original documentation: [CC BY-SA 4.0](LICENSE-DOCS.md), subject to separately identified third-party licenses.
 
-### Common Attack Patterns
-
-- Account Takeover
-- Credential stuffing
-- Automated password brute force
-- Session/token replay
-
-### Why This Exposure Persists
-
-- Token lifecycle weaknesses
-- Refresh tokens not invalidated
-- Authentication validated only periodically
-- Lack of automation detection
-
-### Continuous Validation
-
-- Token replay simulation
-- Credential stuffing emulation
-- Session fixation and hijack testing
-- Authentication abuse under automated behaviour
-
----
-
-## CTEM-02: Broken Authorization / IDOR Exposure
-
-**Mapped OWASP:** Broken Access Control
-
-### Description
-
-Authorization controls fail across object or tenant boundaries, allowing horizontal or vertical privilege escalation.
-
-### Continuous Validation
-
-- Cross-user access testing
-- IDOR emulation
-- Token scope abuse validation
-
----
-
-## CTEM-03: Excessive Attack Surface Exposure
-
-**Mapped OWASP:** Access Control / Security Misconfiguration
-
-### Description
-
-Unused, undocumented, or legacy endpoints remain exposed and exploitable.
-
-### Continuous Validation
-
-- Endpoint discovery
-- Shadow API detection
-- Exposure drift monitoring
-
----
-
-## CTEM-04: Security Control Bypass After Change
-
-**Mapped OWASP:** Access Control / Software & Data Integrity
-
-### Description
-
-Security controls degrade or fail after deployments, configuration changes, or refactoring.
-
-### Continuous Validation
-
-- Replay of validated attack paths in CI/CD
-- Control effectiveness verification
-
----
-
-## CTEM-05: Automation & Bot Abuse Exposure
-
-**Mapped OWASP:** Authentication / Insecure Design
-
-### Description
-
-Applications fail to detect and mitigate automated abuse, including credential stuffing, scraping, and fraud automation.
-
-### Common Attack Patterns
-
-- Credential stuffing
-- Web scraping
-- Inventory hoarding / scalping
-- Card cracking / carding
-
-### Continuous Validation
-
-- Automated login abuse simulation
-- Scraping behaviour emulation
-- Fraud automation pattern testing
-
----
-
-## CTEM-06: API Trust Boundary Exposure
-
-**Mapped OWASP API:** API1 / API2 / API5
-
-### Description
-
-Implicit trust between APIs or services allows lateral movement and privilege escalation.
-
-### Continuous Validation
-
-- Cross-service authorization testing
-- Token scope misuse validation
-
----
-
-## CTEM-07: Business Logic Abuse Exposure
-
-**Mapped OWASP:** Insecure Design
-
-### Description
-
-Application logic can be abused through workflow manipulation that is not detected by vulnerability scanners.
-
-### Continuous Validation
-
-- Abuse-case simulation
-- Sequence and workflow manipulation testing
-
----
-
-## CTEM-08: Third-Party & Supply Chain Exposure
-
-**Mapped OWASP:** Vulnerable Components / Software & Data Integrity
-
-### Description
-
-Exposure arises from dependencies, SDKs, payment processors, or external integrations.
-
-### Continuous Validation
-
-- Attack chain validation
-- Exploitability assessment beyond CVSS
-
----
-
-## CTEM-09: Detection & Response Validation Gaps
-
-**Mapped OWASP:** Logging & Monitoring Failures
-
-### Description
-
-Attacks succeed without triggering detection, alerting, or response.
-
-### Continuous Validation
-
-- Attack-with-visibility testing
-- Alert accuracy and latency validation
-
----
-
-## CTEM-10: Exposure Drift
-
-**Mapped OWASP:** All Categories
-
-### Description
-
-Previously remediated exposure reappears due to code, configuration, or environmental drift.
-
-### Continuous Validation
-
-- Continuous replay of known attack paths
-- Regression exposure detection
-- Exposure trend tracking
-
----
-
-## Automation & Fraud Exposure Coverage
-
-The CTEM Top 10 addresses continuous exposure related to:
-
-- Account Takeover
-- Credential stuffing
-- Web scraping
-- Inventory scalping and hoarding
-- Card cracking and carding
-- Automated fraud workflows
-
-These are treated as **validated exposure scenarios**, not standalone fraud categories.
-
----
-
-## Defensive Capability Validation
-
-CTEM evaluates whether defensive mechanisms effectively mitigate automated abuse, including:
-
-- Continuous verification of client authenticity
-- Detection of automated behaviour
-- Real-time mitigation effectiveness
-- Increased attack cost mechanisms
-- Behavioural anomaly detection
-
-Evaluation is **functional** and **vendor-neutral**.
-
----
-
-## Role of AI / LLM
-
-LLMs may assist with:
-
-- Threat hypothesis generation
-- Exposure reasoning
-- Security signal summarisation
-- Developer remediation guidance
-
-LLMs do not:
-
-- Execute attacks
-- Make enforcement decisions
-- Automatically remediate vulnerabilities
-
-Human validation remains required.
-
----
-
-## Project Status
-
-This document is currently in **Version 0.1 Draft** and is intended for community review, feedback, and refinement.
-
----
-
-## Contributing
-
-Contributions, comments, and suggestions are welcome.
-
-Please contribute through GitHub issues, pull requests, or OWASP project discussion channels once available.
-
----
-
-## License
-
-This project is released under the **Apache License 2.0**.
+**Project milestones and approval status must be verified on the official project page and through the repository review process.**
